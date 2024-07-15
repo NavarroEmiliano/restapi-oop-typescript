@@ -8,14 +8,14 @@ export default tseslint.config(
   {
     rules: {
       '@typescript-eslint/type-annotation-spacing': [
-        'warn',
+        'error',
         {
           before: false,
           after: true
         }
       ],
-      semi: 'warn',
-      'comma-dangle': 'warn'
+      semi: 'error',
+      'comma-dangle': 'error'
     }
   }
 );
