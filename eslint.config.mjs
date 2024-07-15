@@ -1,5 +1,5 @@
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -7,15 +7,15 @@ export default tseslint.config(
   ...tseslint.configs.stylistic,
   {
     rules: {
-      "@typescript-eslint/type-annotation-spacing": [
-        "error",
+      '@typescript-eslint/type-annotation-spacing': [
+        'warn',
         {
           before: false,
           after: true
         }
       ],
-      semi: "error",
-      "comma-dangle": "error"
+      semi: 'warn',
+      'comma-dangle': 'warn'
     }
   }
 );
