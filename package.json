@@ -5,7 +5,7 @@
   "scripts": {
     "tsc": "tsc",
     "lint": "eslint . --fix",
-    "start": "ts-node src/index.ts",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev src/index.ts"
   },
   "author": "",
