@@ -9,5 +9,7 @@ export class BaseRouter<T> {
     this.routes();
   }
 
-  routes() {}
+  routes(): void {
+    return;
+  }
 }
