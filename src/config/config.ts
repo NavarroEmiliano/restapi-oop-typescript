@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+import { DataSource } from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 
@@ -41,9 +42,20 @@ export abstract class ConfigServer {
       database: this.getEnvironment('DB_DATABASE'),
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/../../migrations/*{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
       logging: false,
       namingStrategy: new SnakeNamingStrategy()
     };
+  }
+
+  async dbConnect(): Promise<DataSource> {
+    try {
+      const dataSource = new DataSource(this.typeORMConfig);
+      await dataSource.initialize();
+      return dataSource;
+    } catch (error) {
+      console.error('Error initializing database:', error);
+      throw error;
+    }
   }
 }
